@@ -1,7 +1,14 @@
 "use client";
 
-const Button: React.FC = () => {
-  return <button onClick={() => alert("gggg")}> coucou la base</button>;
+import { MouseEventHandler } from "react";
+
+interface Button {
+  title: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Button: React.FC<Button> = ({ title, onClick }) => {
+  return <button onClick={onClick}>{title}</button>;
 };
 
 export default Button;

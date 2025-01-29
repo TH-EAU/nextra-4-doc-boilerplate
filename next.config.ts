@@ -13,6 +13,9 @@ const nextConfig: NextConfig = withNextra({
   reactStrictMode: true,
   basePath: "/nextra-4-doc-boilerplate",
   assetPrefix: "/nextra-4-doc-boilerplate",
+  images: {
+    unoptimized: true,
+  },
 });
 
 export default nextConfig;

@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app), with a Nextra Docs Template : https://github.com/shuding/nextra-docs-template
 
-## Getting Started
+## Developpement
 
-First, run the development server:
+To run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now you can go to :
+`http://localhost:3000/nextra-4-doc-boilerplate`
+to see the result
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy (github-pages)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Go to the `next.config.ts` and edit the folowing parameters :
 
-## Learn More
+```
+    basePath: "/<your-repository-name>",
+    assetPrefix: "/<your-repository-name>",
+```
 
-To learn more about Next.js, take a look at the following resources:
+and run :
+`npm run deploy`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This will build your application, create a `gh-pages` branch and deploy the page for you
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> a `/out` folder will be generated
 
-## Deploy on Vercel
+## Files and Folders
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Since the application is based on NextJs 15 with `app router`, to add a page you to respect the folowing structure :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+docs
+| page1
+| | page.mdx
+| page2
+| | page.mdx
+| subfolder
+| | subpage1
+| | | page.mdx
+| | subpage2
+| | | page.mdx
+```
+
+Each page must have properties that describe the page's identity:
+
+```
+---
+title: MainPage
+sidebarTitle: main
+asIndexPage: true
+---
+```
